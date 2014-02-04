@@ -3,7 +3,13 @@ extends layout
 block content
   if user
     div.jumbotron
-      h3. Available actions:
+      h3 Choose your tool:
+      div.btn-group 
+        button(type="button").btn.btn-default 
+          a(href="http://insbits.com:1880/admin/?server=insbits.com" target="_blank") Spacebrew
+        button(type="button").btn.btn-default 
+          a(href="http://insbits.com:1880" target="_blank") red-NODE
+      h3 Available devices:
       div.btn-group 
         button(type="button").btn.btn-default 
           a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_phones/index.html?server=193.10.67.60&name=PHONE#{userId}" target="_blank") Phone

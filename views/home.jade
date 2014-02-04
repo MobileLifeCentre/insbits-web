@@ -15,13 +15,16 @@ block content
           i.fa.fa-trello.fa-4x
         a(href="https://coderwall.com/team/mobile-life-centre" title="Coderwall").col-md-2
           i.fa.fa-th.fa-4x
-        
-
-          
-        
+    br
+    br
+    br
+    br
 
     if user
-      .alert.alert-success.animated.flipInX
-        i.fa.fa-check
-        strong Success!
-        |  You are logged in.
+    div.jumbotron
+      h3 Choose your tool:
+      div.btn-group 
+        button(type="button").btn.btn-default 
+          a(href="http://insbits.com:1880/admin/?server=insbits.com" target="_blank") Spacebrew
+        button(type="button").btn.btn-default 
+          a(href="http://insbits.com:1880" target="_blank") red-NODE
