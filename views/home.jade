@@ -1,14 +1,27 @@
 extends layout
 
 block content
-  h1 Bootstrap starter template
-  p.lead
-    | Use this document as a way to quickly start any new project.
-    br
-    | All you get is this text and a mostly barebones HTML document.
+  div.hero
+    h1 Welcome to insbits
+    p.lead
+      | Virtual space for a bunch of Mobile Lifers. You can find us in:
+      div.col-md-6
 
-  if user
-    .alert.alert-success.animated.flipInX
-      i.fa.fa-check
-      strong Success!
-      |  You are logged in.
+        a(href="https://github.com/orgs/MobileLifeCentre" title="GitHub").col-md-2
+          i.fa.fa-github.fa-4x
+        a(href="https://goo.gl/maps/xSi6u" title="Map").col-md-2
+          i.fa.fa-map-marker.fa-4x
+        a(href="https://trello.com/mobilelifecentre" title="Trello").col-md-2
+          i.fa.fa-trello.fa-4x
+        a(href="https://coderwall.com/team/mobile-life-centre" title="Coderwall").col-md-2
+          i.fa.fa-th.fa-4x
+        
+
+          
+        
+
+    if user
+      .alert.alert-success.animated.flipInX
+        i.fa.fa-check
+        strong Success!
+        |  You are logged in.

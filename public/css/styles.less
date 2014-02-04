@@ -99,4 +99,87 @@ body {
   margin-right: 5px;
 }
 
+body {
+  background: url(/img/bellLab.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ 
+  .inset-text;
+}
 
+/* shadow text */
+.inset-text {
+    color: rgba(255,255,255, 0.2);
+    text-shadow: 1px 1px 0px #fff, 0 0 0 #000, 1px 1px 0px #fff;
+}
+::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
+::selection { background: #5af; color: #fff; text-shadow: none; }
+
+
+.rflea {
+  height: 300px;
+  transition: transform 1s;
+  -webkit-transition: -webkit-transform 0.5s;
+}
+
+.rflea.blue {
+  background: url(/img/rfleaBlue.png) no-repeat center center ;
+  -webkit-transform: rotateZ(2deg);
+   -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+.rflea.red {
+  background: url(/img/rfleaRed.png) no-repeat center center;
+  -webkit-transform: rotateZ(-2deg);
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+.rflea.black {
+  background: url(/img/rfleaBlack.png) no-repeat center center ;
+  -webkit-transform: rotateZ(2deg);
+ -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+.rflea:hover {
+  transform: scale(1.1,1.1);
+  -webkit-transform: scale(1.1, 1.1) rotateZ(-5deg);
+}
+
+
+
+i.fa:hover {
+  transition: -webkit-transform 0.2s;
+  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
+}
+
+a i.fa {
+  color: #fff !important;
+  text-shadow: 1px 2px 0px #9B9B9B, 0 0 0 #000, 1px 2px 0px #9B9B9B !important;
+}
+
+.jumbotron {
+  background-color: rgba(220, 220, 220, 0.1)
+}
+
+legend {
+  color: #fff;
+  .inset-text;
+}
+
+a, a.btn i {
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+}

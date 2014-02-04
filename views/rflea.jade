@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  if user
+    div.jumbotron
+      h3. Available actions:
+      div.btn-group 
+        button(type="button").btn.btn-default 
+          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_phones/index.html?server=193.10.67.60&name=PHONE#{userId}" target="_blank") Phone
+        button(type="button" ).btn.btn-default
+          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_button/index.html?server=193.10.67.60&name=BUTTON#{userId}" target="_blank") Button
+        button(type="button" ).btn.btn-default
+          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_slider/index.html?server=193.10.67.60&name=SLIDERS#{userId}" target="_blank") Sliders
+        button(type="button" ).btn.btn-default
+          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_graph/index.html?server=193.10.67.60&name=Graphs#{userId}" target="_blank") Graphs
+  else
+    h1 rFlea toolkit
+    p.lead
+      | We are building a toolkit using open source projects to facilitate the connection and programming of devices. With this we want to speed up the iterations in the design process of Mobile Lifers. 
+
+    div.container-fluid 
+      div.row
+        div.col-md-6.jumbotron
+          p.lead These are the tools that we are gathering:
+          ul    
+            li 
+              | Initial set of 
+              b plug and play 
+              | sensors and actuators using 
+              b rFlea 
+              | and 
+              b rPi
+            li 
+              b Open API 
+              | to plug your own sensors and actuators using 
+              b Spacebrew
+            li 
+              b Visual programming interface 
+              | using 
+              b node-RED
+
+        div.col-md-6
+          br
+          br
+          p.rflea.blue.col-md-3.offset-2
+          p.rflea.red.col-md-3
+          p.rflea.black.col-md-3
+
