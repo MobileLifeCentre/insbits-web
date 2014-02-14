@@ -19,7 +19,7 @@ $(document).ready(function() {
 	teiInput.on("input", onTextChange);
 
 	teiInputButton.on("click", onClickMAC);
-	teiInputButton.on("keypress", onPressKeyMAC);
+	$("#teiID").on("keypress", onPressKeyMAC);
 
 	function onClickMAC() {
 		if ($(teiButton).hasClass(OK_BUTTON)) {
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		}
 	}
 
-	function onPressKeyMAC(key) {
+	function onPressKeyMAC(e) {
 		if (e.keyCode == 13) { // Enter
 			onClickMAC();
 			return false;
