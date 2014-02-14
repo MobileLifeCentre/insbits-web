@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 	teiInput.on("input", onTextChange);
 
-	teiButton.on("click", onClickMAC);
+	teiInputButton.on("click", onClickMAC);
 
 	function onClickMAC() {
 		if ($(teiButton).hasClass(OK_BUTTON)) {
