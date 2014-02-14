@@ -10,7 +10,7 @@ $(document).ready(function() {
 		WRITE_BUTTON = "btn-default";
 
 	teiInput.filter_input({
-	  regex:'[0-9A-F:]', 
+	  regex:'[0-9A-Fa-f:]', 
 	  feedback: function(char) {
 	  	
 	  }
@@ -18,12 +18,11 @@ $(document).ready(function() {
 
 	teiInput.on("input", onTextChange);
 
-	teiInputButton.on("click", onClickMAC);
+	teiButton.on("click", onClickMAC);
 
 	function onClickMAC() {
-		var mac = teiID.value;
-		if (mac.length == ID_LENGTH){
-			window.location.href = "?mac=" + mac;
+		if ($(teiButton).hasClass(OK_BUTTON)) {
+			window.location.href = 
 		}
 	}
 
@@ -55,7 +54,7 @@ $(document).ready(function() {
 	, app_name = "monitor";
 
 	function setup () {
-		app_name = app_name + $("#teiMAC").text();
+		app_name = app_name + $("#teiMAC").text().toLowerCase();
 
 		// setup spacebrew!
 		var server = window.location.origin;
