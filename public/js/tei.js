@@ -64,7 +64,7 @@ $(document).ready(function() {
 		app_name = app_name + $("#teiMAC").text().toLowerCase();
 
 		// setup spacebrew!
-		var server = window.location.origin.hostname;
+		var server = window.location.hostname;
 		console.log(server);
 		if (server == "http://localhost") server = "insbits.com";
 		sb = new Spacebrew.Client(server);
