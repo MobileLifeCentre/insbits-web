@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 	function onClickMAC() {
 		if ($(teiButton).hasClass(OK_BUTTON)) {
-			window.location.href = 
+			window.location.href = "?mac=" + $("#teiMAC").text().toLowerCase();
 		}
 	}
 
