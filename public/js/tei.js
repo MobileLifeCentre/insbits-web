@@ -19,13 +19,20 @@ $(document).ready(function() {
 	teiInput.on("input", onTextChange);
 
 	teiInputButton.on("click", onClickMAC);
+	teiInputButton.on("keypress", onPressKeyMAC);
 
 	function onClickMAC() {
 		if ($(teiButton).hasClass(OK_BUTTON)) {
-			window.location.href = "?mac=" + $("#teiMAC").text().toLowerCase();
+			window.location.href = "?mac=" + $("#teiID").val().toLowerCase();
 		}
 	}
 
+	function onPressKeyMAC(key) {
+		if (e.keyCode == 13) { // Enter
+			onClickMAC();
+			return false;
+		}
+	}
 
 	function onTextChange(text) {
 		var id = text.target.value;
@@ -77,7 +84,9 @@ $(document).ready(function() {
 		sb.connect();
 	}
 
-	setup();
+	if ($("#teiMAC").text().length > 0) {
+		setup();
+	}
 
 	function onOpen() {
 	}
