@@ -37,8 +37,8 @@ module.exports = {
   },
 
   google: {
-    clientID: 'Your Client ID',
-    clientSecret: 'Your Client Secret',
+    clientID: '29312239019-h8cpkp2udi035qvvoh33pesa4ttcl5bs.apps.googleusercontent.com',
+    clientSecret: 'aQitq3nb_ac5JviIB5sdbeRn',
     callbackURL: '/auth/google/callback',
     passReqToCallback: true
   },

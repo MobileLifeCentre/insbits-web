@@ -21,6 +21,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var rfleaController = require('./controllers/rflea');
+var teiController = require('./controllers/tei');
 var contactController = require('./controllers/contact');
 
 /**
@@ -115,6 +116,7 @@ app.get('/api/paypal', apiController.getPayPal);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 */
+app.get('/tei', teiController.index);
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/github', passport.authenticate('github'));
