@@ -6,19 +6,19 @@ block content
       h3 Choose your tool:
       div.btn-group 
         button(type="button").btn.btn-default 
-          a(href="http://insbits.com:1880/admin/?server=insbits.com" target="_blank") Spacebrew
+          a(href="#{server}:1880/admin/?server=#{server}" target="_blank") Spacebrew
         button(type="button").btn.btn-default 
-          a(href="http://insbits.com:1880" target="_blank") red-NODE
+          a(href="#{server}:1880" target="_blank") red-NODE
       h3 Available devices:
       div.btn-group 
         button(type="button").btn.btn-default 
-          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_phones/index.html?server=193.10.67.60&name=PHONE#{userId}" target="_blank") Phone
+          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_phones/index.html?server=#{server}&name=PHONE#{userId}" target="_blank") Phone
         button(type="button" ).btn.btn-default
-          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_button/index.html?server=193.10.67.60&name=BUTTON#{userId}" target="_blank") Button
+          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_button/index.html?server=#{server}&name=BUTTON#{userId}" target="_blank") Button
         button(type="button" ).btn.btn-default
-          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_slider/index.html?server=193.10.67.60&name=SLIDERS#{userId}" target="_blank") Sliders
+          a(href="http://spacebrew.github.io/spacebrew.js/spacebrew_slider/index.html?server=#{server}&name=SLIDERS#{userId}" target="_blank") Sliders
         button(type="button" ).btn.btn-default
-          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_graph/index.html?server=193.10.67.60&name=Graphs#{userId}" target="_blank") Graphs
+          a(href="http://labatrockwell.github.io/spacebrew-javascript-wildstyle-examples/spacebrew_graph/index.html?server=#{server}&name=Graphs#{userId}" target="_blank") Graphs
   else
     h1 rFlea toolkit
     p.lead

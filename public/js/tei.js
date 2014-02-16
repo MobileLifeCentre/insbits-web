@@ -73,7 +73,7 @@ $(document).ready(function() {
 		// setup spacebrew!
 		var server = window.location.hostname;
 		console.log(server);
-		if (server == "localhost") server = "insbits.com";
+		//if (server == "localhost") server = "insbits.com";
 		sb = new Spacebrew.Client(server);
 		sb.name(app_name);
 
