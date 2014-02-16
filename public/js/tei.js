@@ -7,7 +7,8 @@ $(document).ready(function() {
 		WRITE_ICON = "fa-edit",
 		teiInputButton = $("#teiButton"),
 		OK_BUTTON = "btn-success",
-		WRITE_BUTTON = "btn-default";
+		WRITE_BUTTON = "btn-default",
+		graphs = [];
 
 	teiInput.filter_input({
 	  regex:'[0-9A-Fa-f:]', 
@@ -56,17 +57,23 @@ $(document).ready(function() {
 		teiButton.className = "btn " + (prevText.length == ID_LENGTH ? OK_BUTTON : WRITE_BUTTON);
 	}
 
+
+	function setupGraphs() {
+		graphs["analog0"] = new Graph("analog0Graph");
+		graphs["analog1"] = new Graph("analog1Graph");
+	}
+
 	// Spacebrew things
 	var sb
-	, app_name = "monitor";
+	, app_name = "monitoru";
 
-	function setup () {
+	function setupSpacebrew () {
 		app_name = app_name + $("#teiMAC").text().toLowerCase();
 
 		// setup spacebrew!
 		var server = window.location.hostname;
 		console.log(server);
-		if (server == "http://localhost") server = "insbits.com";
+		if (server == "localhost") server = "insbits.com";
 		sb = new Spacebrew.Client(server);
 		sb.name(app_name);
 
@@ -75,6 +82,8 @@ $(document).ready(function() {
 		sb.onRangeMessage = onRangeMessage;
 
 		// create the spacebrew subscription channels
+		sb.addSubscribe("analog0", "range");
+		sb.addSubscribe("analog1", "range");
 		sb.addSubscribe("digital0", "range");
 		sb.addSubscribe("digital1", "range");
 		sb.addSubscribe("digital2", "range");
@@ -85,14 +94,60 @@ $(document).ready(function() {
 	}
 
 	if ($("#teiMAC").text().length > 0) {
-		setup();
+		setupGraphs();
+		setupSpacebrew();
 	}
+
+	$('.slider').slider();
 
 	function onOpen() {
 	}
-	        
-	function onRangeMessage(name, value) {
+
+	function processDigital(name, value) {
 		var isTrue = (parseInt(value) != 0); 
 		$("#" + name).toggleClass("btn-info", isTrue).toggleClass("btn-default", !isTrue).html(value);
+	}  
+
+	function processAnalog(name, value) {
+		graphs[name].addValue(parseInt(value));
+		$("#"+ name + "Slider").slider("setValue", value);
+		$("#" + name + "Label").html(value);
+	}  
+
+	function onRangeMessage(name, value) {
+		if (name.indexOf("analog") != -1) {
+			processAnalog(name, value);
+		} else {
+  			processDigital(name, value);
+  		}
   	}
 });
+
+
+var Graph = function(canvasId) {
+  // create the three different time series that graph the range inputs from spacebrew
+  var line = new TimeSeries();
+
+  // create the chart wher the time series will be graphed
+  var smoothie = new SmoothieChart({  grid: { strokeStyle: 'rgb(255, 125, 125)', 
+                                              fillStyle: 'rgb(220, 220, 220)', 
+                                              lineWidth: 1, 
+                                              millisPerLine: 250, 
+                                              verticalSections: 6 
+                                            } 
+                                      });
+
+  // add the time series to the graph
+  smoothie.addTimeSeries(line, { strokeStyle: 'rgb(221, 25, 150)', fillStyle: 'rgba(211, 25, 150, 0.4)', lineWidth: 3 });
+  
+  // add the graph to the canvas
+  smoothie.streamTo(document.getElementById(canvasId), 1000);
+
+  function add(value) {
+  	line.append(new Date().getTime(), value);  // append new data point to line
+  }
+
+  return {
+  	addValue: add
+  }
+};

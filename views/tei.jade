@@ -27,10 +27,20 @@ block content
           i.fa.fa-bar-chart-o
           | Analog
         br
-        iframe(src="https://dl.dropboxusercontent.com/u/5476179/spacebrew_graph/index.html?server=193.10.67.60&name=GraphsAnalog0_#{mac}" width="400px" seamless="true")
+        div.row.col-md-12
+          button.btn.btn-info.col-md-1(id="analog0Label" type="button" style="margin-left:15px; width:50px") 0
+          div.col-md-1
+          input.slider.col-md-10(id="analog0Slider" type="text" value="" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-orientation="horizontal" data-slider-tooltip="show" )
+        br
+        canvas(width="400px" id="analog0Graph")
         br
         br
-        iframe(src="https://dl.dropboxusercontent.com/u/5476179/spacebrew_graph/index.html?server=193.10.67.60&name=GraphsAnalog1_#{mac}" width="400px" seamless="true")
+        div.row.col-md-12
+          button.btn.btn-info.col-md-1(id="analog1Label" type="button" style="margin-left:15px;width:50px") 0
+          div.col-md-1
+          input.slider.col-md-10(id="analog1Slider" type="text" value="" data-slider-min="0" data-slider-max="255" data-slider-value="0" data-slider-orientation="horizontal" data-slider-tooltip="show")
+        br
+        canvas(width="400px" id="analog1Graph")
   else
     h3 Insert the <strong>ID</strong> from your phone
     div.input-group.input-group-lg
@@ -41,6 +51,8 @@ block content
     br
     br
 
+  script(src="/js/lib/smoothie.js")
   script(src="/js/lib/sb-1.2.0.js")
+  script(src="/js/lib/bootstrap-slider.js")
   script(src="/js/tei.js")
       
