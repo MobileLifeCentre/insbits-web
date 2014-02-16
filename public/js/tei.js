@@ -65,7 +65,7 @@ $(document).ready(function() {
 
 	// Spacebrew things
 	var sb
-	, app_name = "monitoru";
+	, app_name = "monito";
 
 	function setupSpacebrew () {
 		app_name = app_name + $("#teiMAC").text().toLowerCase();
@@ -80,6 +80,7 @@ $(document).ready(function() {
 		// Override Spacebrew events - this is how you catch events coming from Spacebrew
 		sb.onOpen = onOpen;
 		sb.onRangeMessage = onRangeMessage;
+		sb.onStringMessage = onStringMessage;
 
 		// create the spacebrew subscription channels
 		sb.addSubscribe("analog0", "range");
@@ -88,6 +89,7 @@ $(document).ready(function() {
 		sb.addSubscribe("digital1", "range");
 		sb.addSubscribe("digital2", "range");
 		sb.addSubscribe("digital3", "range");
+		sb.addSubscribe("json", "string");
 
 		// connect to spacebrew
 		sb.connect();
@@ -119,6 +121,15 @@ $(document).ready(function() {
 			processAnalog(name, value);
 		} else {
   			processDigital(name, value);
+  		}
+  	}
+
+  	function onStringMessage(name, value) {
+  		if (name == "json") {
+  			var json = JSON.parse(value);
+  			for(var i in json) {
+  				onRangeMessage(i, parseInt(json[i]));
+  			}
   		}
   	}
 });

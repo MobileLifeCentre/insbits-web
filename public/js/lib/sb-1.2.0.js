@@ -395,7 +395,6 @@ Spacebrew.Client.prototype._onMessage = function( e ){
 			name = data.message.name;
 		    type = data.message.type;
 			value = data.message.value;
-
 			switch( type ){
 				case "boolean":
 					this.onBooleanMessage( name, value == "true" );
